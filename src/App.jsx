@@ -1,14 +1,25 @@
 import { useState } from 'react'
-
+import { BrowserRouter , Route, Routes } from 'react-router-dom'
+import About from './pages/About'
+import Profile from './pages/Profile'
+import SignOut from './pages/SignOut'
+import SignIn from './pages/SignIn'
+import Home from './pages/Home'
+import Error from './pages/Error'
 
 function App() {
-
   return (
     <>
-       <h1 className="text-3xl font-bold underline text-red-500">
-      Hello world!
-    </h1>
-
+    <BrowserRouter>  
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signout" element={<SignOut />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+      </BrowserRouter>
     </>
   )
 }
