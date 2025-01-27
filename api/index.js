@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import userRoute from './routes/user.route.js';
 import authRoute from './routes/auth.route.js';
 import dotenv from 'dotenv';
@@ -19,6 +20,7 @@ app.use(express.json());
 app.listen(3000, () => {
   console.log('Server is running on port 3000 !!!');
 });
+app.use(cors({ origin: 'http://localhost:5173' })); 
 
 app.use('/api/user', userRoute);
 app.use('/api/auth', authRoute);
